@@ -61,8 +61,8 @@ class AuthIcon extends React.Component<Props, State> {
     )
   }
 
-  private handleLogout = () => {
-    this.props.auth!.logout()
+  private handleLogout = async () => {
+    await this.props.auth!.logout()
     this.handleClose()
   }
 
