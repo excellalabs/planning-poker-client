@@ -1,0 +1,9 @@
+mutation CreatePost(
+  $content: String!
+) {
+  createPost(
+    content: $content
+  ) {
+    _id
+  }
+}

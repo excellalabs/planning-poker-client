@@ -1,0 +1,14 @@
+subscription ListenToPost (
+  $postId: ID!
+) {
+  post (
+    postId: $postId
+  ) {
+    _id
+    content
+    poster {
+      _id
+      username
+    }
+  }
+}

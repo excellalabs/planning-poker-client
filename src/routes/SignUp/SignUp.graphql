@@ -1,0 +1,14 @@
+mutation SignUp(
+  $username: String!,
+  $password: String!,
+  $verifyPassword: String!,
+) {
+  createUser(
+    username: $username,
+    password: $password,
+    verifyPassword: $verifyPassword,
+  ) {
+    _id
+    username
+  }
+}

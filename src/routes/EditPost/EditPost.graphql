@@ -1,0 +1,14 @@
+mutation EditPost (
+  $postId: ID!
+  $content: String!
+) {
+  updatePost(
+    postId: $postId
+    data: {
+      content: $content
+    }
+  ) {
+    _id
+    content
+  }
+}

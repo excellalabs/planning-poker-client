@@ -1,0 +1,12 @@
+query ReadPost (
+  $postId: ID!
+) {
+  post (
+    postId: $postId
+  ) {
+    content
+    poster {
+      _id
+    }
+  }
+}
