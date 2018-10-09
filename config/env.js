@@ -60,7 +60,28 @@ process.env.NODE_PATH = (process.env.NODE_PATH || '')
 // injected into the application via DefinePlugin in Webpack configuration.
 const REACT_APP = /^REACT_APP_/i;
 
+function removeSlash(path) {
+  const hasSlash = path.endsWith('/');
+  if (hasSlash) {
+    return path.substr(path, path.length - 1);
+  } else {
+    return path;
+  }
+}
+
+const protocolRgx = /^(?:https?:)?\/\/(.+)/
+function removeProtocol (path) {
+  if (protocolRgx.test(path)) {
+    return protocolRgx.exec(path)[1]
+  } else {
+    return path
+  }
+}
+
 function getClientEnvironment(publicUrl) {
+  const publicPathWithoutSlash = removeSlash(publicUrl)
+  const publicPathWithoutProtocol = removeProtocol(publicPathWithoutSlash) || 'localhost:3000'
+
   const raw = Object.keys(process.env)
     .filter(key => REACT_APP.test(key))
     .reduce(
@@ -77,8 +98,8 @@ function getClientEnvironment(publicUrl) {
         // This should only be used as an escape hatch. Normally you would put
         // images into the `src` and `import` them in code to get their paths.
         PUBLIC_URL: publicUrl,
-        GRAPHQL_URL: process.env.GRAPHQL_URL || '/graphql',
-        GRAPHQL_SUBSCRIPTION_URL: process.env.GRAPHQL_SUBSCRIPTION_URL || 'ws://localhost/graphql'
+        GRAPHQL_URL: process.env.GRAPHQL_URL || `${publicPathWithoutSlash}/graphql`,
+        GRAPHQL_SUBSCRIPTION_URL: process.env.GRAPHQL_SUBSCRIPTION_URL || `ws://${publicPathWithoutProtocol}/graphql`
       },
     );
   // Stringify all values so we can feed into Webpack DefinePlugin
