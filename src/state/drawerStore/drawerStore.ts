@@ -8,7 +8,7 @@ export interface DrawerProp {
 class DrawerStore {
   @observable drawerOpen: boolean = false
 
-  toggleDrawer (open = !this.drawerOpen) {
+  toggleDrawer(open = !this.drawerOpen) {
     this.drawerOpen = open
   }
 }

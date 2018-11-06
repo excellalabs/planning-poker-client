@@ -9,7 +9,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-type ProviderProps = Required<AuthProp> & Required<DrawerProp>;
+type ProviderProps = Required<AuthProp> & Required<DrawerProp> & VoteProp;
 
 const stores: ProviderProps = {
   auth,

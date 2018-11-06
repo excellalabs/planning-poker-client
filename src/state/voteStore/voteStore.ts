@@ -1,14 +1,15 @@
-import { observable } from 'mobx';
+import { observable, action } from 'mobx';
 
 export interface VoteProp {
   vote?: VoteStore;
 }
 
 class VoteStore {
-  // @observable drawerOpen: boolean = false
-  // toggleDrawer (open = !this.drawerOpen) {
-  //   this.drawerOpen = open
-  // }
+  @observable flipped: boolean = false
+
+  @action.bound flipCards() {
+    this.flipped = !this.flipped
+  }
 }
 
 export const vote = new VoteStore();

@@ -22,12 +22,9 @@ const styled = withStyles(theme => ({
 @observer
 class Cards extends React.Component<Props> {
   render() {
-    return <div>
-      {(this.props.votes.forEach(v => {
-        // <div>This is a card. Vote: {vote.value}</div>
-        return <div>v.value</div>
-      }))}
-    </div>
+    return this.props.votes.map(v =>
+      <div>This is a card. Vote: {v.value}. Flipped: {this.props.flipped.toString()}</div>
+    )
 
   }
 }
