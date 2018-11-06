@@ -1,3 +1,9 @@
-.cardColor {
-    color: black
+.cardValue {
+    color: black;
+    font-size: 100px;
+}
+
+.card {
+    width: 15%;
+    height: 200px;
 }
