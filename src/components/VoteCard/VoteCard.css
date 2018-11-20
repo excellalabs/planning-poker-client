@@ -7,3 +7,12 @@
     width: 15%;
     height: 200px;
 }
+
+.cardHeaderStyle {
+    float: left;
+}
+
+.largeLogo {
+    height: auto;
+    width: auto;
+}
