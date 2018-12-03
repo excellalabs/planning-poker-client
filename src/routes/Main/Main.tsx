@@ -2,8 +2,9 @@ import * as React from 'react';
 import Cards from '../../components/Cards';
 import CardFlipper from '../../components/CardFlipper'
 import { observer, inject } from 'mobx-react';
+import AddVote from 'components/AddVote';
 
-@inject('vote')
+@inject('session')
 @observer
 class Main extends React.Component {
   session = {
@@ -14,8 +15,9 @@ class Main extends React.Component {
     return (
       <div>
         <h2>Main Page</h2>
-        <Cards votes={this.session['votes']} flipped={this.props.vote.flipped} />
-        <CardFlipper flipCards={this.props.vote.flipCards} />
+        <Cards session={this.props.session}/>
+        <AddVote addVote={this.props.session.addVote}/>
+        <CardFlipper flipCards={this.props.session.flipCards} />
       </div>
     );
   }
