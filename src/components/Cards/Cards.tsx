@@ -2,6 +2,7 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { withStyles } from '@material-ui/core';
 import { AuthProp } from 'state/authStore';
+import VoteCard from 'components/VoteCard';
 
 interface Props extends AuthProp {
   classes: Classes;
@@ -23,7 +24,8 @@ const styled = withStyles(theme => ({
 class Cards extends React.Component<Props> {
   render() {
     return this.props.votes.map(v =>
-      <div>This is a card. Vote: {v.value}. Flipped: {this.props.flipped.toString()}</div>
+      // <div>This is a card. Vote: {v.value}. Flipped: {this.props.flipped.toString()}</div>
+      <VoteCard value={v.value} showValue={this.props.flipped}>   </VoteCard>
     )
 
   }
