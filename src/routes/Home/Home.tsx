@@ -1,4 +1,5 @@
 import * as React from 'react'
+import VoteCard from '../../components/VoteCard/VoteCard'
 
 import {
   home,
@@ -16,10 +17,13 @@ class Home extends React.Component {
         <header className={homeHeader}>
           <img src={logo} className={homeLogo} alt='logo' />
           <h1 className={homeTitle}>Welcome to React</h1>
+          
         </header>
         <p className={homeIntro}>
           To get started, edit <code>src/home.tsx</code> and save to reload.
         </p>
+        <VoteCard value='1' showValue={true}></VoteCard>
+        <VoteCard value='3' showValue={false}></VoteCard>
       </div>
     )
   }
