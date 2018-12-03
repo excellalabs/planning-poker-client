@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { withStyles } from '@material-ui/core';
-import { AuthProp } from 'state/authStore';
 
 interface Props {
   flipCards: Function
