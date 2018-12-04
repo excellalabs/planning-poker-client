@@ -3,18 +3,18 @@ import { Provider } from 'mobx-react';
 
 import { AuthProp, auth } from './authStore';
 import { DrawerProp, drawer } from './drawerStore';
-import { VoteProp, vote } from './voteStore';
+import { SessionProp, session } from './sessionStore';
 
 interface Props {
   children?: React.ReactNode;
 }
 
-type ProviderProps = Required<AuthProp> & Required<DrawerProp> & VoteProp;
+type ProviderProps = Required<AuthProp> & Required<DrawerProp> & SessionProp;
 
 const stores: ProviderProps = {
   auth,
   drawer,
-  vote
+  session
 };
 
 const MobxProvider = ({ children }: Props) => (

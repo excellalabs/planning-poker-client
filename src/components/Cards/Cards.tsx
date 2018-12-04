@@ -23,11 +23,9 @@ const styled = withStyles(theme => ({
 @observer
 class Cards extends React.Component<Props> {
   render() {
-    return this.props.votes.map(v =>
-      // <div>This is a card. Vote: {v.value}. Flipped: {this.props.flipped.toString()}</div>
-      <VoteCard value={v.value} showValue={this.props.flipped}>   </VoteCard>
+    return this.props.session.votes.map(v =>
+      <VoteCard value={v.value} showValue={this.props.session.flipped}>   </VoteCard>
     )
-
   }
 }
 
