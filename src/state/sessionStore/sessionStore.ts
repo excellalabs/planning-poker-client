@@ -15,6 +15,10 @@ class SessionStore {
   @action.bound addVote(value: string) {
     this.votes.push({ value: value })
   }
+
+  @action.bound resetVotes() {
+    this.votes = []
+  }
 }
 
 export const session = new SessionStore();
