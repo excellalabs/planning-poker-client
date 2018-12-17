@@ -32,7 +32,9 @@ const VoteCard = ( { value, showValue }: Props) => {
   }
 
   return  <Card className={card}>
-            {cardHeader}
+            <div>
+             {cardHeader}
+            </div>
             <FlexView hAlignContent='center' vAlignContent='center'>
               {cardContent}
             </FlexView>
